@@ -15,11 +15,7 @@ class HomeRemoteDatasource {
 
     final response = await apiClient.dio.get(
       '/weather',
-      queryParameters: {
-        'q': 'Jakarta',
-        'appid': apiKey,
-        'units': 'metric',
-      },
+      queryParameters: {'q': 'Jakarta', 'appid': apiKey, 'units': 'metric'},
     );
 
     return WeatherModel.fromJson(response.data);
