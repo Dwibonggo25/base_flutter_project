@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../libraries/core/network/app_client.dart';
 import '../../../domain/usecase/home_usecase.dart';
 import 'home_event.dart';
 import 'home_state.dart';
@@ -13,9 +12,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   Future<void> _onGetWeather(
-      GetWeatherEvent event,
-      Emitter<HomeState> emit,
-      ) async {
+    GetWeatherEvent event,
+    Emitter<HomeState> emit,
+  ) async {
     emit(HomeLoading());
 
     try {

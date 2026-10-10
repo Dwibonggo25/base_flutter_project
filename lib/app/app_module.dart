@@ -1,5 +1,3 @@
-import 'package:base_project/features/home/presentation/ui/home_page.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -16,21 +14,11 @@ class AppModule extends Module {
   List<Bind> get binds => [
     Bind.instance<SharedPreferences>(prefs),
 
-    Bind.lazySingleton<TokenStorage>(
-          (i) => TokenStorage(i.get()),
-    ),
+    Bind.lazySingleton<TokenStorage>((i) => TokenStorage(i.get())),
 
-    Bind.lazySingleton<ApiClient>(
-          (i) => ApiClient(i.get()),
-    ),
+    Bind.lazySingleton<ApiClient>((i) => ApiClient(i.get())),
   ];
 
   @override
-  List<ModularRoute> get routes => [
-
-    ModuleRoute(
-      '/',
-      module: HomeModule(),
-    ),
-  ];
+  List<ModularRoute> get routes => [ModuleRoute('/', module: HomeModule())];
 }
